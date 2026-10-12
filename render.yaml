@@ -1,0 +1,29 @@
+# Render Blueprint: เชื่อม repo นี้กับ Render แล้วเลือก "New > Blueprint" ระบบจะสร้าง service ให้ตามไฟล์นี้
+services:
+  - type: web
+    name: buddy-bike-chatbot
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: OPENROUTER_API_KEY
+        sync: false            # ใส่ค่าเองในหน้า Environment ของ Render (ไม่เก็บใน repo)
+      - key: ADMIN_TOKEN
+        generateValue: true    # Render สุ่มค่าให้ ดูได้ในหน้า Environment
+      - key: CHAT_MODEL
+        value: openai/gpt-4o-mini
+      - key: VISION_MODEL
+        value: google/gemini-2.5-flash
+      - key: GUARD_MODEL
+        value: meta-llama/llama-guard-4-12b
+      # ---- LINE Official Account (ใส่ค่าเองในหน้า Environment) ----
+      # Webhook URL ที่ต้องกรอกใน LINE Developers Console: https://<ชื่อ service>.onrender.com/line/webhook
+      - key: LINE_CHANNEL_SECRET
+        sync: false
+      - key: LINE_CHANNEL_ACCESS_TOKEN
+        sync: false
+      - key: LINE_ADMIN_USER_IDS
+        sync: false            # userId ของเจ้าหน้าที่ คั่นหลายคนด้วย , (ให้เจ้าหน้าที่พิมพ์ myid ในแชต LINE OA เพื่อดูค่า)
+      - key: LINE_NOTIFY_WEB
+        value: "true"          # แจ้งเจ้าหน้าที่ทาง LINE ด้วย เมื่อคำถามหรือสลิปมาจากหน้าเว็บ

@@ -1,0 +1,1 @@
+อ่านภาพที่แนบมาแล้วตอบเป็น JSON ที่มีคีย์ image_quality, is_slip, reason, sender_name, receiver_name, amount, transfer_date, transfer_time, bank, ref_no
