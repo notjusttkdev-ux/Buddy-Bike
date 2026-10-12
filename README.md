@@ -1,4 +1,4 @@
-# Buddy Bike — Ride Now! Chatbot (v2)
+# Buddy Bike — Ride Now! Chatbot
 
 แชตบอตตอบคำถามลูกค้าร้านเช่ารถจักรยานยนต์ และรับสลิปการโอนเงิน
 โปรเจกต์ปลายภาควิชา 06048308 Intelligent Chatbot Development
